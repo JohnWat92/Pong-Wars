@@ -17,6 +17,7 @@ export default class Game {
 		this.radius = 8;
 	
 		this.gameElement = document.getElementById(this.element);
+		this.pause = false;
 
 		this.board = new Board(this.width, this.height);
 
@@ -40,14 +41,28 @@ export default class Game {
 			KEYS.down
 			);
 
+			    document.addEventListener('keydown', event =>{
+					switch (event.keyCode) {
+						case KEYS.spaceBar:
+							this.pause = !this.pause;
+							break;
+					}
+				});
+                
+
 		this.ball = new Ball(
 			this.radius,
 			this.width,
-			this.height
+			this.height,
+			KEYS.spaceBar
 			);
 	}
 
 	render() {
+
+		if(this.pause){
+			return;
+		}
 		//empties out the SVGs so page doesn't scroll infinitely
 		this.gameElement.innerHTML= '';
 

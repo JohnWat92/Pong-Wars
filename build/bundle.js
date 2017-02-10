@@ -614,10 +614,20 @@
 	    value: function reset() {
 	      this.x = this.boardWidth / 2;
 	      this.y = this.boardHeight / 2;
+
+	      this.vy = 0;
+	      // a number between -5 and 5
+	      while (this.vy === 0) {
+	        this.vy = Math.floor(Math.random() * 10 - 5);
+	      }
+
+	      this.vx = this.direction * (6 - Math.abs(this.vy));
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render(svg) {
+	      this.x += this.vx;
+	      this.y += this.vy;
 
 	      var ball = document.createElementNS(_settings.SVG_NS, 'circle');
 	      ball.setAttributeNS(null, 'stroke', 'white');
@@ -625,7 +635,6 @@
 	      ball.setAttributeNS(null, 'r', this.radius);
 	      ball.setAttributeNS(null, 'cx', this.x); //x of the top left corner
 	      ball.setAttributeNS(null, 'cy', this.y); // y of the top left corner
-
 
 	      svg.appendChild(ball);
 	    }
