@@ -553,6 +553,7 @@
 	  z: 90, // player 1 down key
 	  up: 38, // player 2 up key
 	  down: 40, // player 2 down key
+	  g: 71, // add a ball
 	  spaceBar: 32 };
 
 /***/ },
@@ -728,11 +729,9 @@
 	            if (rightGoal) {
 	                this.goal(player1);
 	                this.direction = 1;
-	                console.log('player 1: ' + player1.score);
 	            } else if (leftGoal) {
 	                this.goal(player2);
 	                this.direction = -1;
-	                console.log('player 2: ' + player2.score);
 	            }
 	        }
 	    }]);

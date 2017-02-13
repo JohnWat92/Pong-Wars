@@ -1,8 +1,8 @@
 import {SVG_NS, KEYS} from '../settings';
+
 import Board from './Board';
 import Ball from './Ball';
 import Score from './Score';
-
 import Paddle from './Paddle';
 
 
