@@ -45,21 +45,42 @@ export default class Game {
 			this.score1 = new Score(272, 40, 40);
 			this.score2 = new Score(212, 40, 40);
 
-			    document.addEventListener('keydown', event =>{
-					switch (event.keyCode) {
-						case KEYS.spaceBar:
-							this.pause = !this.pause;
-							break;
-					}
-				});
+			document.addEventListener('keydown', event =>{
+				switch (event.keyCode) {
+					case KEYS.spaceBar:
+						this.pause = !this.pause;
+						break;
+				}
+			});
                 
-
 		this.ball = new Ball(
 			this.radius,
 			this.width,
 			this.height,
 			KEYS.spaceBar
 			);
+
+		this.ball1 = new Ball();
+
+		document.addEventListener('keydown', event =>{
+				switch (event.keyCode) {
+					case KEYS.g:
+						this.ball1 = new Ball(
+							14,
+							this.width,
+							this.height
+							);
+						break;
+				}
+			});
+		document.addEventListener('keydown', event =>{
+				switch (event.keyCode) {
+					case KEYS.h:
+						this.ball1 = new Ball();
+						break;
+				}
+			});
+
 	}
 
 	render() {
@@ -78,6 +99,7 @@ export default class Game {
 
 		this.board.render(svg);
 		this.ball.render(svg, this.player1, this.player2);
+		this.ball1.render(svg, this.player1, this.player2);
 
 		this.player1.render(svg);
 		this.player2.render(svg);

@@ -44,7 +44,7 @@ import {SVG_NS} from '../settings';
             paddle.setAttributeNS(null, 'width', this.width);
             paddle.setAttributeNS(null, 'height', this.height);
             paddle.setAttributeNS(null, 'x', this.x); //x of the top left corner
-            paddle.setAttributeNS(null, 'y', this.y);// y of the top left corner
+            paddle.setAttributeNS(null, 'y', this.y); // y of the top left corner
 
             svg.appendChild(paddle);
 

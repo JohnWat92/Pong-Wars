@@ -503,6 +503,8 @@
 			});
 
 			this.ball = new _Ball2.default(this.radius, this.width, this.height, _settings.KEYS.spaceBar);
+
+			this.ball1 = new _Ball2.default(this.radius, this.width, this.height, _settings.KEYS.g);
 		}
 
 		_createClass(Game, [{
