@@ -39,7 +39,9 @@ export default class Game {
 			(this.width - this.boardGap - this.paddleWidth), 
 			((this.height - this.paddleHeight)/2),
 			KEYS.up,
-			KEYS.down
+			KEYS.down,
+			KEYS.left,
+			KEYS.right
 			);
 
 			this.score1 = new Score(272, 40, 40);
@@ -66,7 +68,7 @@ export default class Game {
 				switch (event.keyCode) {
 					case KEYS.g:
 						this.ball1 = new Ball(
-							14,
+							28,
 							this.width,
 							this.height
 							);

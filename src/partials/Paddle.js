@@ -1,7 +1,7 @@
 import {SVG_NS} from '../settings';
 
     export default class Paddle {
-        constructor(boardHeight, width, height, x, y, up, down) {
+        constructor(boardHeight, width, height, x, y, up, down, left, right) {
             this.boardHeight = boardHeight;
             this.width = width;
             this.height = height;
@@ -18,6 +18,12 @@ import {SVG_NS} from '../settings';
                     case down:
                         this.down();
                         break;
+                    case left:
+                        this.left();
+                        break;
+                    case right:
+                        this.right();
+                        break;
                 }
             });
         } 
@@ -30,6 +36,13 @@ import {SVG_NS} from '../settings';
             this.y = Math.min((this.boardHeight-this.height),this.y + this.speed);
         }
 
+        left(){
+            this.x = Math.min(512 , this.x - this.speed);
+        }
+
+        right(){
+            this.x = Math.max(this.x + this.speed, 0)
+        }
         coordinates(x, y, width, height) {
             let leftX = x;
             let rightX = x + width;

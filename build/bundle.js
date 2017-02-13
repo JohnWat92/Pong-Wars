@@ -504,7 +504,22 @@
 
 			this.ball = new _Ball2.default(this.radius, this.width, this.height, _settings.KEYS.spaceBar);
 
-			this.ball1 = new _Ball2.default(this.radius, this.width, this.height, _settings.KEYS.g);
+			this.ball1 = new _Ball2.default();
+
+			document.addEventListener('keydown', function (event) {
+				switch (event.keyCode) {
+					case _settings.KEYS.g:
+						_this.ball1 = new _Ball2.default(28, _this.width, _this.height);
+						break;
+				}
+			});
+			document.addEventListener('keydown', function (event) {
+				switch (event.keyCode) {
+					case _settings.KEYS.h:
+						_this.ball1 = new _Ball2.default();
+						break;
+				}
+			});
 		}
 
 		_createClass(Game, [{
@@ -525,6 +540,7 @@
 
 				this.board.render(svg);
 				this.ball.render(svg, this.player1, this.player2);
+				this.ball1.render(svg, this.player1, this.player2);
 
 				this.player1.render(svg);
 				this.player2.render(svg);
@@ -556,6 +572,7 @@
 	  up: 38, // player 2 up key
 	  down: 40, // player 2 down key
 	  g: 71, // add a ball
+	  h: 72, //remove ball
 	  spaceBar: 32 };
 
 /***/ },

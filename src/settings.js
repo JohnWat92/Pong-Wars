@@ -7,5 +7,7 @@ export const KEYS = {
   down: 40,     // player 2 down key
   g: 71,        // add a ball
   h: 72,        //remove ball
+  left:37,
+  right:39,
   spaceBar: 32, // we'll use this later...
 }
