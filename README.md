@@ -1,10 +1,27 @@
 # Side Pong
 
 **What I Learned**
-In this game, I learned how helpful constructors are when instantiating new objects. I also strengthened my understanding of using "this" to dynamically use values throughout my code for easier use.
-
+ * In this game, I learned how helpful constructors are when instantiating new objects 
+ * I've strengthened my understanding of using "this" to dynamically use values for modularity
+ * I learned how to use key codes and eventlisteners so the user may trigger certain actions
+ * Exporting and importing partials is a very clean way to implement codes
+ * Learned how to render and add attributes to SVGs
+ 
 **Technologies Used**
+* Babel
+* ES2015 
+* Webpacks 
+* SVGs
+* GitHub
 
-**Player 2:**
-* ▲ : up
+
+**Player 1 Controls**
+* w: up
+* s: down
+* a: left
+* d: right
+**Player 2 Controls**
+* ▲: up
 * ▼: down
+* ◀: left
+* ▶: right
