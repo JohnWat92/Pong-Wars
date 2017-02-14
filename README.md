@@ -20,6 +20,9 @@
 * s: down
 * a: left
 * d: right
+
+
+
 **Player 2 Controls**
 * ▲: up
 * ▼: down
