@@ -712,9 +712,9 @@
 	            this.y = this.boardHeight / 2;
 
 	            this.vy = 0;
-
+	            // var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
 	            while (this.vy === 0) {
-	                this.vy = Math.floor(Math.random() * 10 - 5); // a number between -5 and 5
+	                this.vy = Math.random() < 0.5 ? -1 : 1; // a number between -5 and 5
 	            }
 
 	            this.vx = this.direction * (6 - Math.abs(this.vy));

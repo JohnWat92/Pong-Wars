@@ -57,7 +57,7 @@ export default class Game {
 			}
 		});
 
-		this.ball = new Ball(this.radius, this.width, this.height, this.direction);
+		this.ball = new Ball(this.radius, this.width, this.height);
 
 		this.ball1 = new Ball();
 
