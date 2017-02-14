@@ -72,6 +72,9 @@ html {
 
 body {
   align-items: center;
+  background: url('http://wallpapersdsc.net/wp-content/uploads/2015/09/Ping_Pong_HD_53.jpg');
+  background-size:cover, cover;
+
   display: flex;
   font-family: 'Silkscreen Web', monotype;
   height: 100vh;
@@ -79,8 +82,22 @@ body {
   width: 100%;
 }
 
+p { 
+  margin-left: 10px;
+  font-size:25px;
+  color:white;
+  text-shadow: 1px 1px 10px #000;
+  }
+
 h1 {
   font-size: 2.5rem;
+  color:white;
+  text-shadow: 1px 1px 10px #000; 
   margin-bottom: 1rem; 
   text-align: center;
+}
+
+.instructions {
+  display: flex;
+  flex-wrap:wrap;
 }

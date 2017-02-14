@@ -1,4 +1,4 @@
-import {SVG_NS, KEYS} from '../settings';
+import { SVG_NS, KEYS } from '../settings';
 
 import Board from './Board';
 import Ball from './Ball';
@@ -16,84 +16,73 @@ export default class Game {
 		this.paddleWidth = 8;
 		this.paddleHeight = 56;
 		this.radius = 8;
-	
+
 		this.gameElement = document.getElementById(this.element);
 		this.pause = false;
 
 		this.board = new Board(this.width, this.height);
 
 		this.player1 = new Paddle(
-			this.height, 
-			this.paddleWidth, 
-			this.paddleHeight, 
-			this.boardGap, 
+			this.height,
+			this.paddleWidth,
+			this.paddleHeight,
+			this.boardGap,
 			((this.height - this.paddleHeight) / 2),
+			KEYS.w,
+			KEYS.s,
 			KEYS.a,
-			KEYS.z
-			);
+			KEYS.d
+		);
 
 		this.player2 = new Paddle(
 			this.height,
-			this.paddleWidth, 
-			this.paddleHeight, 
-			(this.width - this.boardGap - this.paddleWidth), 
-			((this.height - this.paddleHeight)/2),
+			this.paddleWidth,
+			this.paddleHeight,
+			(this.width - this.boardGap - this.paddleWidth),
+			((this.height - this.paddleHeight) / 2),
 			KEYS.up,
 			KEYS.down,
 			KEYS.left,
 			KEYS.right
-			);
+		);
 
-			this.score1 = new Score(272, 40, 40);
-			this.score2 = new Score(212, 40, 40);
+		this.score1 = new Score(272, 40, 40);
+		this.score2 = new Score(212, 40, 40);
 
-			document.addEventListener('keydown', event =>{
-				switch (event.keyCode) {
-					case KEYS.spaceBar:
-						this.pause = !this.pause;
-						break;
-				}
-			});
-                
-		this.ball = new Ball(
-			this.radius,
-			this.width,
-			this.height,
-			KEYS.spaceBar
-			);
+		document.addEventListener('keydown', event => {
+			switch (event.keyCode) {
+				case KEYS.spaceBar:
+					this.pause = !this.pause;
+					break;
+			}
+		});
+
+		this.ball = new Ball(this.radius, this.width, this.height, this.direction);
 
 		this.ball1 = new Ball();
 
-		document.addEventListener('keydown', event =>{
-				switch (event.keyCode) {
-					case KEYS.g:
-						this.ball1 = new Ball(
-							28,
-							this.width,
-							this.height
-							);
-						break;
-				}
-			});
-		document.addEventListener('keydown', event =>{
-				switch (event.keyCode) {
-					case KEYS.h:
-						this.ball1 = new Ball();
-						break;
-				}
-			});
+		document.addEventListener('keydown', event => {
+			switch (event.keyCode) {
+				case KEYS.g:
+					this.ball1 = new Ball(28, this.width, this.height);
+					break;
+				case KEYS.h:
+					this.ball1 = new Ball();
+					break;
+			}
+		});
 
 	}
 
 	render() {
 
-		if(this.pause){
+		if (this.pause) {
 			return;
 		}
 		//empties out the SVGs so page doesn't scroll infinitely
-		this.gameElement.innerHTML= '';
+		this.gameElement.innerHTML = '';
 
-		let svg = document.createElementNS(SVG_NS,'svg');
+		let svg = document.createElementNS(SVG_NS, 'svg');
 		svg.setAttributeNS(null, 'width', this.width);
 		svg.setAttributeNS(null, 'height', this.height);
 		svg.setAttributeNS(null, 'viewBox', `0 0 ${this.width} ${this.height}`);
@@ -108,7 +97,7 @@ export default class Game {
 
 		this.score1.render(svg, this.player1.score);
 		this.score2.render(svg, this.player2.score);
-		
+
 	}
 
 }
