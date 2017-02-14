@@ -6,6 +6,7 @@
  * I learned how to use key codes and eventlisteners so the user may trigger certain actions
  * Exporting and importing partials is a very clean way to implement codes
  * Learned how to render and add attributes to SVGs
+ * I also learned how to style my read.me file
  
 **Technologies Used**
 * Babel
@@ -28,3 +29,8 @@
 * ▼: down
 * ◀: left
 * ▶: right
+
+
+**Other Controls**
+* g: spawn one big ball
+* h: remove big ball
