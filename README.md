@@ -42,3 +42,4 @@ After you score, the ball spawns in the center again, so get back to position qu
 **Other Controls**
 * g: spawn one big ball
 * h: remove big ball
+* space bar: Pauses Game
