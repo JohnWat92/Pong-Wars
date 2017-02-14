@@ -16,6 +16,8 @@
 * GitHub
 
 **How to Play**
+
+
 The objective of this game is to rebound the balls so they pass the opponents paddle.
 You are allowed to move sideways closer to the mid-line and even past it, to give your opponents a harder time, but be careful! 
 After you score, the ball spawns in the center again, so get back to position quickly
