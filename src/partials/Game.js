@@ -64,7 +64,7 @@ export default class Game {
 		document.addEventListener('keydown', event => {
 			switch (event.keyCode) {
 				case KEYS.g:
-					this.ball1 = new Ball(28, this.width, this.height);
+					this.ball1 = new Ball(20, this.width, this.height);
 					break;
 				case KEYS.h:
 					this.ball1 = new Ball();

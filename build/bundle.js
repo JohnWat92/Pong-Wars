@@ -509,7 +509,7 @@
 			document.addEventListener('keydown', function (event) {
 				switch (event.keyCode) {
 					case _settings.KEYS.g:
-						_this.ball1 = new _Ball2.default(28, _this.width, _this.height);
+						_this.ball1 = new _Ball2.default(20, _this.width, _this.height);
 						break;
 					case _settings.KEYS.h:
 						_this.ball1 = new _Ball2.default();
