@@ -1,22 +1,9 @@
-# Pong Game
+# Side Pong
 
-A basic pong game using SVGs.
+**What I Learned**
+In this game, I learned how helpful constructors are when instantiating new objects. I also strengthened my understanding of using "this" to dynamically use values throughout my code for easier use.
 
-## Setup
-
-**Install:**
-
-`> npm i`
-
-**Run:**
-
-`> npm start`
-
-## Keys
-
-**Player 1:**
-* a: up
-* z: down
+**Technologies Used**
 
 **Player 2:**
 * ▲ : up
