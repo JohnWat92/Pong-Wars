@@ -699,7 +699,7 @@
 	                    _topY = _paddle3[2],
 	                    _bottomY = _paddle3[3];
 
-	                if (this.x - this.radius <= _rightX && this.x - this.radius <= _leftX && this.y >= _topY && this.y <= _bottomY) {
+	                if (this.x - this.radius <= _rightX && this.x - this.radius >= _leftX && this.y >= _topY && this.y <= _bottomY) {
 	                    this.vx = -this.vx;
 	                    this.ping.play();
 	                }
