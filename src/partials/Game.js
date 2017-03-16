@@ -5,7 +5,6 @@ import Ball from './Ball';
 import Score from './Score';
 import Paddle from './Paddle';
 
-
 export default class Game {
 
 	constructor(element, width, height) {
@@ -50,29 +49,29 @@ export default class Game {
 	}
 
 	playerOneCreation(){
-			this.player1 = new Paddle(
-			this.height,
-			this.paddleWidth,
-			this.paddleHeight,
-			this.boardGap,
-			((this.height - this.paddleHeight) / 2),
-			KEYS.w,
-			KEYS.s,
-			KEYS.a,
-			KEYS.d
+		this.player1 = new Paddle(
+		this.height,
+		this.paddleWidth,
+		this.paddleHeight,
+		this.boardGap,
+		((this.height - this.paddleHeight) / 2),
+		KEYS.w,
+		KEYS.s,
+		KEYS.a,
+		KEYS.d
 		);
 	}
 	playerTwoCreation(){
-			this.player2 = new Paddle(
-			this.height,
-			this.paddleWidth,
-			this.paddleHeight,
-			(this.width - this.boardGap - this.paddleWidth),
-			((this.height - this.paddleHeight) / 2),
-			KEYS.up,
-			KEYS.down,
-			KEYS.left,
-			KEYS.right
+		this.player2 = new Paddle(
+		this.height,
+		this.paddleWidth,
+		this.paddleHeight,
+		(this.width - this.boardGap - this.paddleWidth),
+		((this.height - this.paddleHeight) / 2),
+		KEYS.up,
+		KEYS.down,
+		KEYS.left,
+		KEYS.right
 		);
 	}
 	startingBall(){
@@ -81,7 +80,6 @@ export default class Game {
 	secondBall(){
 			this.ball1 = new Ball();
 	}
-
 
 	render() {
 		if (this.pause) {
@@ -107,5 +105,4 @@ export default class Game {
 		this.score2.render(svg, this.player2.score);
 
 	}
-
 }
