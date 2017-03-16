@@ -490,7 +490,6 @@
 			this.pause = false;
 
 			this.board = new _Board2.default(this.width, this.height);
-
 			this.score1 = new _Score2.default(272, 40, 40);
 			this.score2 = new _Score2.default(212, 40, 40);
 
@@ -501,7 +500,6 @@
 						break;
 				}
 			});
-
 			document.addEventListener('keydown', function (event) {
 				switch (event.keyCode) {
 					case _settings.KEYS.g:
@@ -682,7 +680,6 @@
 	            var hitRight = this.x + this.radius >= this.boardWidth;
 	            var hitTop = this.y - this.radius <= 0;
 	            var hitBottom = this.y + this.radius >= this.boardHeight;
-
 	            if (hitLeft || hitRight) {
 	                this.vx = -this.vx;
 	            } else if (hitTop || hitBottom) {
