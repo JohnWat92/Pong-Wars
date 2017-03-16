@@ -481,30 +481,15 @@
 			this.paddleWidth = 8;
 			this.paddleHeight = 56;
 			this.radius = 8;
+			this.playerOneCreation();
+			this.playerTwoCreation();
+			this.startingBall();
+			this.secondBall();
 
 			this.gameElement = document.getElementById(this.element);
 			this.pause = false;
 
 			this.board = new _Board2.default(this.width, this.height);
-
-			this.player1 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.boardGap, (this.height - this.paddleHeight) / 2, _settings.KEYS.w, _settings.KEYS.s, _settings.KEYS.a, _settings.KEYS.d);
-
-			this.player2 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.width - this.boardGap - this.paddleWidth, (this.height - this.paddleHeight) / 2, _settings.KEYS.up, _settings.KEYS.down, _settings.KEYS.left, _settings.KEYS.right);
-
-			// paddle2();{
-			// 	this.player2 = new Paddle(
-			// 	this.height,
-			// 	this.paddleWidth,
-			// 	this.paddleHeight,
-			// 	(this.width - this.boardGap - this.paddleWidth),
-			// 	((this.height - this.paddleHeight) / 2),
-			// 	KEYS.up,
-			// 	KEYS.down,
-			// 	KEYS.left,
-			// 	KEYS.right
-			// );
-			// }
-
 
 			this.score1 = new _Score2.default(272, 40, 40);
 			this.score2 = new _Score2.default(212, 40, 40);
@@ -516,10 +501,6 @@
 						break;
 				}
 			});
-
-			this.ball = new _Ball2.default(this.radius, this.width, this.height);
-
-			this.ball1 = new _Ball2.default();
 
 			document.addEventListener('keydown', function (event) {
 				switch (event.keyCode) {
@@ -534,9 +515,28 @@
 		}
 
 		_createClass(Game, [{
+			key: 'playerOneCreation',
+			value: function playerOneCreation() {
+				this.player1 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.boardGap, (this.height - this.paddleHeight) / 2, _settings.KEYS.w, _settings.KEYS.s, _settings.KEYS.a, _settings.KEYS.d);
+			}
+		}, {
+			key: 'playerTwoCreation',
+			value: function playerTwoCreation() {
+				this.player2 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.width - this.boardGap - this.paddleWidth, (this.height - this.paddleHeight) / 2, _settings.KEYS.up, _settings.KEYS.down, _settings.KEYS.left, _settings.KEYS.right);
+			}
+		}, {
+			key: 'startingBall',
+			value: function startingBall() {
+				this.ball = new _Ball2.default(this.radius, this.width, this.height);
+			}
+		}, {
+			key: 'secondBall',
+			value: function secondBall() {
+				this.ball1 = new _Ball2.default();
+			}
+		}, {
 			key: 'render',
 			value: function render() {
-
 				if (this.pause) {
 					return;
 				}
@@ -689,43 +689,39 @@
 	                this.vy = -this.vy;
 	            }
 	        }
-	    }, {
-	        key: 'leftPaddleCollisionOccured',
-	        value: function leftPaddleCollisionOccured() {
-	            var paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
+	        // leftPaddleCollisionOccured(){
+	        //     let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
+	        //     let [leftX, rightX, topY, bottomY] = paddle;
+	        //     this.x + this.radius >= leftX
+	        //     && this.x + this.radius <= rightX
+	        //     && this.y >= topY
+	        //     && this.y <= bottomY
+	        // }
 
-	            var _paddle = _slicedToArray(paddle, 4),
-	                leftX = _paddle[0],
-	                rightX = _paddle[1],
-	                topY = _paddle[2],
-	                bottomY = _paddle[3];
-
-	            this.x + this.radius >= leftX && this.x + this.radius <= rightX && this.y >= topY && this.y <= bottomY;
-	        }
 	    }, {
 	        key: 'paddleCollision',
 	        value: function paddleCollision(player1, player2) {
 	            if (this.vx > 0) {
 	                var paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
 
-	                var _paddle2 = _slicedToArray(paddle, 4),
-	                    leftX = _paddle2[0],
-	                    rightX = _paddle2[1],
-	                    topY = _paddle2[2],
-	                    bottomY = _paddle2[3];
+	                var _paddle = _slicedToArray(paddle, 4),
+	                    leftX = _paddle[0],
+	                    rightX = _paddle[1],
+	                    topY = _paddle[2],
+	                    bottomY = _paddle[3];
 
 	                if (this.x + this.radius >= leftX && this.x + this.radius <= rightX && this.y >= topY && this.y <= bottomY) {
 	                    this.vx = -this.vx;
 	                    this.ping.play();
 	                }
 	            } else {
-	                var _paddle3 = player1.coordinates(player1.x, player1.y, player1.width, player1.height);
+	                var _paddle2 = player1.coordinates(player1.x, player1.y, player1.width, player1.height);
 
-	                var _paddle4 = _slicedToArray(_paddle3, 4),
-	                    _leftX = _paddle4[0],
-	                    _rightX = _paddle4[1],
-	                    _topY = _paddle4[2],
-	                    _bottomY = _paddle4[3];
+	                var _paddle3 = _slicedToArray(_paddle2, 4),
+	                    _leftX = _paddle3[0],
+	                    _rightX = _paddle3[1],
+	                    _topY = _paddle3[2],
+	                    _bottomY = _paddle3[3];
 
 	                if (this.x - this.radius <= _rightX && this.x - this.radius >= _leftX && this.y >= _topY && this.y <= _bottomY) {
 	                    this.vx = -this.vx;

@@ -24,7 +24,6 @@ export default class Game {
 		this.pause = false;
 
 		this.board = new Board(this.width, this.height);
-
 		this.score1 = new Score(272, 40, 40);
 		this.score2 = new Score(212, 40, 40);
 
@@ -35,7 +34,6 @@ export default class Game {
 					break;
 			}
 		});
-
 		document.addEventListener('keydown', event => {
 			switch (event.keyCode) {
 				case KEYS.g:
@@ -47,40 +45,38 @@ export default class Game {
 			}
 		});
 	}
-
-	playerOneCreation(){
+	playerOneCreation() {
 		this.player1 = new Paddle(
-		this.height,
-		this.paddleWidth,
-		this.paddleHeight,
-		this.boardGap,
-		((this.height - this.paddleHeight) / 2),
-		KEYS.w,
-		KEYS.s,
-		KEYS.a,
-		KEYS.d
+			this.height,
+			this.paddleWidth,
+			this.paddleHeight,
+			this.boardGap,
+			((this.height - this.paddleHeight) / 2),
+			KEYS.w,
+			KEYS.s,
+			KEYS.a,
+			KEYS.d
 		);
 	}
-	playerTwoCreation(){
+	playerTwoCreation() {
 		this.player2 = new Paddle(
-		this.height,
-		this.paddleWidth,
-		this.paddleHeight,
-		(this.width - this.boardGap - this.paddleWidth),
-		((this.height - this.paddleHeight) / 2),
-		KEYS.up,
-		KEYS.down,
-		KEYS.left,
-		KEYS.right
+			this.height,
+			this.paddleWidth,
+			this.paddleHeight,
+			(this.width - this.boardGap - this.paddleWidth),
+			((this.height - this.paddleHeight) / 2),
+			KEYS.up,
+			KEYS.down,
+			KEYS.left,
+			KEYS.right
 		);
 	}
-	startingBall(){
+	startingBall() {
 		this.ball = new Ball(this.radius, this.width, this.height);
 	}
-	secondBall(){
-			this.ball1 = new Ball();
+	secondBall() {
+		this.ball1 = new Ball();
 	}
-
 	render() {
 		if (this.pause) {
 			return;
@@ -103,6 +99,5 @@ export default class Game {
 
 		this.score1.render(svg, this.player1.score);
 		this.score2.render(svg, this.player2.score);
-
 	}
 }
