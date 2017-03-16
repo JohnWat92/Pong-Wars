@@ -26,7 +26,14 @@ export default class Ball {
             this.vy = -this.vy;
         }
     }
-
+// leftPaddleCollisionOccured(){
+//     let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
+//     let [leftX, rightX, topY, bottomY] = paddle;
+//     this.x + this.radius >= leftX
+//     && this.x + this.radius <= rightX
+//     && this.y >= topY
+//     && this.y <= bottomY
+// }
     paddleCollision(player1, player2) {
         if (this.vx > 0) {
             let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
